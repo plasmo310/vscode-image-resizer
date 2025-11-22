@@ -1,0 +1,54 @@
+{
+  "name": "image-resizer",
+  "displayName": "image-resizer",
+  "description": "Image Resize Tool.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.106.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "title": "Image Resizer",
+    "configuration": {
+      "properties": {
+        "imageResizer.outputImageDir": {
+          "type": "string",
+          "default": "",
+          "description": "Output directory for resized images."
+        },
+        "imageResizer.insertTextFormat": {
+          "type": "string",
+          "default": "![${filename}](${filepath})",
+          "description": "Format for inserting resized image markdown."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.106.1",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
