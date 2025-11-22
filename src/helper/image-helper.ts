@@ -68,7 +68,6 @@ export class ImageHelper {
         const { imageBuffer, outputPath, width, height, extension } = options;
 
         // gif はリサイズせずそのまま書き出し
-        console.log(extension);
         if (extension.toLowerCase() === "gif") {
             await fs.writeFile(outputPath, imageBuffer);
             return;
