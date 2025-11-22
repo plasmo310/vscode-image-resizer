@@ -1,8 +1,13 @@
 {
   "name": "image-resizer",
-  "displayName": "image-resizer",
+  "displayName": "Image Resizer",
   "description": "Image Resize Tool.",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "molegoro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/plasmo310/vscode-image-resizer"
+  },
   "engines": {
     "vscode": "^1.106.1"
   },
