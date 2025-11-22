@@ -7,7 +7,8 @@
 
 ## 使用方法
 
-1. `.vscode/settings.json` 内にツール用の設定を行います。
+1. vsixファイルをローカルのVSCodeにインストールします。
+2. `.vscode/settings.json` 内にツール用の設定を行います。
     | 項目名 | 内容 |
     | -- | -- |
     | imageResizer.outputImageDir | 画像ファイルの出力フォルダパス |
