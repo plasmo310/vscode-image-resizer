@@ -1,5 +1,6 @@
 import sharp from "sharp";
 import * as path from "path";
+import * as fs from "fs/promises";
 
 /**
  * 画像情報
@@ -55,16 +56,26 @@ export class ImageHelper {
 
     /**
      * リサイズしてファイルとして保存
+     * ※ GIFはリサイズ対応していないためそのまま保存
      */
     static async resizeAndSave(options: {
         imageBuffer: Buffer,
         outputPath: string,
         width: number,
-        height: number
+        height: number,
+        extension: string
     }): Promise<void> {
-        const { imageBuffer: buffer, outputPath, width, height } = options;
+        const { imageBuffer, outputPath, width, height, extension } = options;
 
-        await sharp(buffer)
+        // gif はリサイズせずそのまま書き出し
+        console.log(extension);
+        if (extension.toLowerCase() === "gif") {
+            await fs.writeFile(outputPath, imageBuffer);
+            return;
+        }
+
+        // リサイズして保存
+        await sharp(imageBuffer)
             .resize({
                 width,
                 height: height ?? undefined,

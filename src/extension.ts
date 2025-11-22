@@ -127,6 +127,7 @@ export function activate(context: vscode.ExtensionContext) {
 					outputPath,
 					width: newWidth,
 					height: newHeight,
+					extension: imageInfo.extension
 				});
 				console.log("[ReSize] width: ", newWidth, " height: ", newHeight);
 				console.log(`[Output] ${outputPath}`);
@@ -140,6 +141,7 @@ export function activate(context: vscode.ExtensionContext) {
 			// テキスト挿入
 			const insertText = expandTemplate(insertTextFormat, {
 				filename: imageInfo.name,
+				extension: imageInfo.extension,
 				width: getInsertTextWidth(newWidth).toString(),
 			});
 			return new vscode.DocumentDropEdit(insertText);

@@ -2,8 +2,10 @@
 
 * 画像ファイルをドラッグ&ドロップでリサイズ・保存できるVSCode拡張機能です。
 * できること
-    * 画像ファイルを比率固定したままリサイズ・保存する
-    * リサイズ情報から整形したテキストをMarkdownにペーストする
+    * 画像ファイルを比率固定したままリサイズ・保存する。
+    * リサイズ情報から整形したテキストをMarkdownにペーストする。
+* できないこと
+    * gifファイルのリサイズには対応しておらず、コピーのみになります。
 
 ## 使用方法
 
@@ -12,14 +14,14 @@
     | 項目名 | 内容 |
     | -- | -- |
     | imageResizer.outputImageDir | 画像ファイルの出力フォルダパス |
-    | imageResizer.insertTextFormat | 挿入テキストのフォーマット<br>以下の文字列は内部で変換されます。<br>${filename}: ファイル名<br>\${width}: 画像幅`920、800、600、480、360`の中からリサイズ後の幅に近い値が設定されます。 |
+    | imageResizer.insertTextFormat | 挿入テキストのフォーマット<br>以下の文字列は内部で変換されます。<br>${filename}: ファイル名<br>\${extension}: ファイル拡張子<br>\${width}: 画像幅`920、800、600、480、360`の中からリサイズ後の幅に近い値が設定されます。 |
    
    a. 設定例
       ```
       {
           ・・・略・・・
           "imageResizer.outputImageDir": "c:\\blog\\public\\content",
-          "imageResizer.insertTextFormat": "![${filename}{width:${width}px}](/content/${filename}.png \"${filename}\")"
+          "imageResizer.insertTextFormat": "![${filename}{width:${width}px}](/content/${filename}.${extension} \"${filename}\")"
       }
       ```
 3. 画像ファイルを Shiftキーを押下した状態でMarkdown上にドラッグ&ドロップします。
